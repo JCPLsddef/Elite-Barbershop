@@ -1,0 +1,195 @@
+/* =========================================================
+   Elite Barbershop — Visit Section (replaces global footer
+   on the home page). Ported from the Shopify Liquid section,
+   scoped under .elite-visit-section so it never leaks.
+   ========================================================= */
+
+.elite-visit-section {
+  background-color: #000;
+  color: #fff;
+  width: 100vw;
+  margin: 0;
+  padding: 80px 0 40px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: var(--font-body), 'Space Grotesk', sans-serif;
+  z-index: 2;
+}
+
+.elite-visit-section .visit-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #C8B88A, #B68B3C, #C8B88A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% auto;
+  animation: visitShimmer 6s infinite linear;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@keyframes visitShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.elite-visit-section .visit-subtitle {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin: 0 auto 6px;
+  max-width: 720px;
+  padding: 0 20px;
+}
+
+.elite-visit-section .visit-info-columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 50px auto 70px;
+  text-align: center;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.elite-visit-section .visit-box {
+  border: 2px solid #B68B3C;
+  background-color: #0A0A0A;
+  box-shadow: 0 0 30px rgba(182, 139, 60, 0.6);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 24px;
+  min-width: 240px;
+  flex: 1;
+}
+
+.elite-visit-section .visit-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px rgba(182, 139, 60, 0.4);
+}
+
+.elite-visit-section .visit-box h4 {
+  color: #B68B3C;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  letter-spacing: 1px;
+  font-family: var(--font-body), 'Space Grotesk', sans-serif;
+}
+
+.elite-visit-section .visit-box p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.elite-visit-section .visit-box a {
+  color: #C8B88A;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.elite-visit-section .visit-box a:hover {
+  color: #FFD875;
+  text-decoration: underline;
+}
+
+/* Map */
+.elite-visit-section .visit-map-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  height: 400px;
+  margin: 50px auto;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(182, 139, 60, 0.3);
+}
+
+.elite-visit-section .visit-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.elite-visit-section .visit-map-link {
+  display: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #B68B3C;
+  margin: 30px auto 0;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.elite-visit-section .visit-map-link:hover {
+  color: #FFD875;
+  text-shadow: 0 0 8px rgba(182, 139, 60, 0.4);
+}
+
+/* Social */
+.elite-visit-section .visit-social {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.elite-visit-section .visit-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(182, 139, 60, 0.4);
+  color: #C8B88A;
+  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.elite-visit-section .visit-social a:hover {
+  transform: scale(1.08);
+  color: #000;
+  background-color: #C8B88A;
+  border-color: #C8B88A;
+}
+
+.elite-visit-section .visit-social svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .elite-visit-section { padding: 60px 0 30px; }
+  .elite-visit-section .visit-title { font-size: 2rem; }
+  .elite-visit-section .visit-subtitle { font-size: 1rem; }
+  .elite-visit-section .visit-info-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin: 36px auto 30px;
+  }
+  .elite-visit-section .visit-box {
+    width: 100%;
+    min-width: 0;
+  }
+  .elite-visit-section .visit-map-wrapper {
+    height: 280px;
+    margin: 30px auto 16px;
+    border-radius: 14px;
+  }
+  .elite-visit-section .visit-map-link {
+    display: block;
+    font-size: 1.05rem;
+    margin-top: 12px;
+  }
+}

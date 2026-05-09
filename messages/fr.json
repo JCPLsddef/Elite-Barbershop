@@ -47,5 +47,33 @@
       "quote": "Votre style, notre passion.",
       "attribution": "Hadi, Fondateur"
     }
+  },
+  "visit": {
+    "title": "Visite Elite Barbershop",
+    "subtitle": "Depuis 2024, Elite Barbershop est le maître du style masculin à Laval",
+    "addressTitle": "Adresse",
+    "hoursTitle": "Heures d'ouverture",
+    "contactTitle": "Nous contacter",
+    "mapLink": "Ouvrir dans Google Maps"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "rights": "Tous droits réservés.",
+    "q1": {
+      "q": "Acceptez-vous les clients sans rendez-vous ?",
+      "a": "Nous fonctionnons uniquement sur rendez-vous. Merci de réserver en ligne afin de garantir votre place au moment qui vous convient."
+    },
+    "q2": {
+      "q": "Combien de temps dure une coupe en moyenne ?",
+      "a": "En général, une coupe dure entre 30 et 45 minutes, selon le service choisi. Nous prenons toujours le temps nécessaire pour un résultat impeccable."
+    },
+    "q3": {
+      "q": "Quelle est votre politique d'annulation ?",
+      "a": "Nous demandons un préavis d'au moins 12 heures pour toute modification ou annulation. Cela nous permet d'offrir le créneau libéré à un autre client. Merci de votre compréhension."
+    },
+    "q4": {
+      "q": "Quelles méthodes de paiement acceptez-vous ?",
+      "a": "Nous acceptons les cartes de crédit (Visa, Mastercard, Amex), la carte de débit (Interac), Apple Pay, Google Pay et le comptant. Le pourboire est apprécié."
+    }
   }
 }

@@ -47,5 +47,33 @@
       "quote": "Your style, our passion.",
       "attribution": "Hadi, Founder"
     }
+  },
+  "visit": {
+    "title": "Visit Elite Barbershop",
+    "subtitle": "Since 2024, Elite Barbershop has been the master of men's style in Laval",
+    "addressTitle": "Address",
+    "hoursTitle": "Opening Hours",
+    "contactTitle": "Contact Us",
+    "mapLink": "Open in Google Maps"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "rights": "All rights reserved.",
+    "q1": {
+      "q": "Do you accept walk-ins?",
+      "a": "We operate by appointment only. Please book online so we can guarantee a slot at the time that suits you best."
+    },
+    "q2": {
+      "q": "How long does a haircut usually take?",
+      "a": "On average, a haircut takes 30 to 45 minutes, depending on the service. We always take the time needed for a flawless result."
+    },
+    "q3": {
+      "q": "What is your cancellation policy?",
+      "a": "We ask for at least 12 hours' notice for any change or cancellation. That lets us offer the freed-up slot to another client. Thank you for understanding."
+    },
+    "q4": {
+      "q": "What payment methods do you accept?",
+      "a": "We accept credit cards (Visa, Mastercard, Amex), Interac debit, Apple Pay, Google Pay, and cash. Tipping is appreciated."
+    }
   }
 }

@@ -1,0 +1,137 @@
+/* =========================================================
+   Elite Barbershop — FAQ Section
+   Scoped under .elite-faq-section.
+   ========================================================= */
+
+.elite-faq-section {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px 60px;
+  text-align: center;
+  font-family: var(--font-body), 'Space Grotesk', sans-serif;
+}
+
+.elite-faq-section .faq-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.elite-faq-section .faq-title {
+  font-size: 2.6rem;
+  margin: 0 0 60px;
+  color: #D4AF37;
+  text-transform: uppercase;
+  font-family: var(--font-display), 'Playfair Display', serif;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.27);
+}
+
+.elite-faq-section .faq-accordion {
+  border-top: 1px solid #333;
+  text-align: left;
+}
+
+.elite-faq-section .faq-item {
+  border-bottom: 1px solid #333;
+  border-left: 4px solid transparent;
+  padding: 24px 0;
+  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, padding-left 0.3s ease;
+}
+
+.elite-faq-section .faq-item.is-open {
+  background: #111;
+  border-left-color: #D4AF37;
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+  padding-left: 16px;
+}
+
+.elite-faq-section .faq-question {
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.elite-faq-section .faq-question:hover {
+  color: #D4AF37;
+}
+
+.elite-faq-section .faq-question-text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.elite-faq-section .faq-icon {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #D4AF37;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.elite-faq-section .faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.elite-faq-section .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+
+.elite-faq-section .faq-answer-inner {
+  overflow: hidden;
+}
+
+.elite-faq-section .faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.elite-faq-section .faq-answer p {
+  color: #ccc;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 800px;
+}
+
+.elite-faq-section .faq-copyright {
+  margin-top: 60px;
+  padding-top: 40px;
+  font-size: 0.95rem;
+  color: #777;
+  text-align: center;
+}
+
+.elite-faq-section .faq-copyright .gold {
+  color: #B68B3C;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .elite-faq-section { padding: 40px 16px 50px; }
+  .elite-faq-section .faq-title {
+    font-size: 1.7rem;
+    margin-bottom: 40px;
+  }
+  .elite-faq-section .faq-question { font-size: 1rem; }
+  .elite-faq-section .faq-answer p { font-size: 0.95rem; }
+  .elite-faq-section .faq-copyright { font-size: 0.85rem; }
+}
