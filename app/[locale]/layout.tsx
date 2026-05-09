@@ -5,7 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { ConditionalFooter } from "@/components/layout/ConditionalFooter";
 import "../globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -60,7 +60,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <Header />
           <div className="flex-1">{children}</div>
-          <Footer />
+          <ConditionalFooter />
         </NextIntlClientProvider>
       </body>
     </html>

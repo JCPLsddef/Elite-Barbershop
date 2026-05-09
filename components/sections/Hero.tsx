@@ -74,28 +74,7 @@ export function Hero() {
         </video>
       </div>
 
-      {/* Atmospheric overlay (dual gradient — top transparent, bottom near-black) */}
-      <div
-        className="absolute inset-0 z-10 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.92) 100%), radial-gradient(ellipse at 50% 55%, transparent 0%, rgba(0,0,0,0.45) 100%)",
-        }}
-        aria-hidden
-      />
-
-      {/* Subtle noise grain over hero (premium polish) */}
-      <div
-        className="absolute inset-0 z-10 pointer-events-none mix-blend-overlay opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>\")",
-          backgroundSize: "220px",
-        }}
-        aria-hidden
-      />
-
-      {/* Content stack */}
+      {/* Content stack — overlays removed: video plays natural with no tint */}
       <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-3xl">
         <div className="anim-logo-fade-in flex flex-col items-center">
           <Image

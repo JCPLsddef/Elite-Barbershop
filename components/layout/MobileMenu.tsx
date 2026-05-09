@@ -1,11 +1,9 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { BookingCTA } from "@/components/ui/BookingCTA";
 import { LangSwitcher } from "@/components/ui/LangSwitcher";
-import { InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcon";
-import { BUSINESS, SLOGANS } from "@/lib/constants";
-import { useLocale, useTranslations } from "next-intl";
+import { SLOGANS } from "@/lib/constants";
+import { useLocale } from "next-intl";
 import {
   useBodyScrollLock,
   useEscapeClose,
@@ -27,7 +25,6 @@ type MobileMenuProps = {
 };
 
 export function MobileMenu({ open, onClose, navLinks }: MobileMenuProps) {
-  const t = useTranslations();
   const locale = useLocale();
 
   useBodyScrollLock(open);
@@ -135,57 +132,9 @@ export function MobileMenu({ open, onClose, navLinks }: MobileMenuProps) {
           })}
         </ul>
 
-        {/* Booking CTA */}
-        <div className="mt-10">
-          <BookingCTA size="lg" variant="pill">
-            {t("nav.book")}
-          </BookingCTA>
-        </div>
-
-        {/* Footer cluster: lang + social + NAP */}
-        <div className="absolute bottom-10 inset-x-0 px-8 flex flex-col items-center gap-5">
-          <div className="flex items-center gap-6">
-            <LangSwitcher />
-            <span aria-hidden style={{ color: "var(--color-border-strong)" }}>
-              ·
-            </span>
-            <a
-              href={BUSINESS.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-gold-200)] transition-colors duration-300"
-            >
-              <InstagramIcon size={18} strokeWidth={1.5} />
-            </a>
-            <a
-              href={BUSINESS.social.tiktok}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok"
-              className="text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-gold-200)] transition-colors duration-300"
-            >
-              <TikTokIcon size={18} strokeWidth={1.5} />
-            </a>
-          </div>
-
-          <div
-            className="text-[10px] uppercase text-center text-[color:var(--color-ink-faint)]"
-            style={{
-              fontFamily: "var(--font-body), system-ui, sans-serif",
-              letterSpacing: "var(--tracking-widest)",
-            }}
-          >
-            <p>{BUSINESS.address.full}</p>
-            <p className="mt-1.5">
-              <a
-                href={BUSINESS.phone.href}
-                className="hover:text-[color:var(--color-gold-200)] transition-colors"
-              >
-                {BUSINESS.phone.display}
-              </a>
-            </p>
-          </div>
+        {/* Minimal footer cluster — only the language switcher */}
+        <div className="absolute bottom-10 inset-x-0 px-8 flex items-center justify-center">
+          <LangSwitcher />
         </div>
       </nav>
     </>
