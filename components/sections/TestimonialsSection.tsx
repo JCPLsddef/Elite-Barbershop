@@ -56,8 +56,6 @@ export function TestimonialsSection() {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(false);
 
   const onPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const onNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -69,8 +67,6 @@ export function TestimonialsSection() {
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
-    setCanPrev(emblaApi.canScrollPrev());
-    setCanNext(emblaApi.canScrollNext());
   }, [emblaApi]);
 
   useEffect(() => {
@@ -168,7 +164,6 @@ export function TestimonialsSection() {
             className="elite-arrow elite-arrow-left"
             aria-label={t("previous")}
             onClick={onPrev}
-            disabled={!canPrev && !emblaApi?.options?.()?.loop}
           >
             <ChevronLeft />
           </button>
@@ -177,7 +172,6 @@ export function TestimonialsSection() {
             className="elite-arrow elite-arrow-right"
             aria-label={t("next")}
             onClick={onNext}
-            disabled={!canNext && !emblaApi?.options?.()?.loop}
           >
             <ChevronRight />
           </button>
