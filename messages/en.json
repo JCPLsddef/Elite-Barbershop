@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "barberLaval": "Laval Barber",
+    "franchise": "Franchise",
+    "contact": "Contact",
+    "book": "Book"
+  },
+  "common": {
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "hours": "Hours",
+    "follow": "Follow",
+    "language": "Language",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "callUs": "Call us",
+    "comingSoon": "Coming soon",
+    "since": "Since"
+  },
+  "hero": {
+    "eyebrow": "Elite Barbershop · Laval",
+    "title": "The ultimate barbershop experience",
+    "slogan": "Luxury. Loyalty. Leadership.",
+    "scrollHint": "Explore"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "ratingHeadline": "5 stars on Google",
+    "ratingDesc": "Elite Barbershop is rated 4.9 stars from 462 Google reviews for its impeccable service and luxurious atmosphere",
+    "previous": "Previous",
+    "next": "Next",
+    "viewMore": "Read all reviews on Google"
+  },
+  "footer": {
+    "tagline": "Since 2024, Elite Barbershop has been the master of men's style in Laval",
+    "rights": "All rights reserved",
+    "visit": "Visit",
+    "contact": "Contact",
+    "connect": "Follow",
+    "directions": "Directions",
+    "viewMap": "View map",
+    "signature": {
+      "quote": "Your style, our passion.",
+      "attribution": "Hadi, Founder"
+    }
+  }
+}

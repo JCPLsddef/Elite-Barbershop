@@ -1,26 +1,364 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Surface scale */
+  --color-surface-0: #000000;
+  --color-surface-1: #0A0A0A;
+  --color-surface-2: #141414;
+  --color-surface-3: #1a1a1a;
+  --color-surface-4: #2a2a2a;
+
+  /* Borders */
+  --color-border-subtle: #1f1f1f;
+  --color-border-default: #2a2a2a;
+  --color-border-strong: #3a3a3a;
+
+  /* Gold scale */
+  --color-gold-50: #FFD875;
+  --color-gold-100: #E8C977;
+  --color-gold-200: #D4AF37;
+  --color-gold-300: #C8B88A;
+  --color-gold-400: #B68B3C;
+  --color-gold-500: #8C6B3F;
+  --color-gold-600: #6E4F2E;
+
+  /* Ink */
+  --color-ink-primary: #FFFFFF;
+  --color-ink-secondary: #E8E8E8;
+  --color-ink-muted: #B8B8B8;
+  --color-ink-faint: #6A6A6A;
+
+  /* Semantic */
+  --color-success: #4ADE80;
+  --color-error: #EF4444;
+
+  /* Typography families */
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  /* Type scale (rem-based, mobile-first) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 4rem;
+  --text-7xl: 5rem;
+  --text-8xl: 6.5rem;
+
+  /* Tracking */
+  --tracking-tightest: -0.04em;
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+  --tracking-editorial: 0.25em;
+  --tracking-eyebrow: 0.3em;
+
+  /* Section vertical rhythm */
+  --spacing-section-sm: 4rem;
+  --spacing-section-md: 6rem;
+  --spacing-section-lg: 8rem;
+  --spacing-section-xl: 10rem;
+
+  /* Container widths */
+  --container-narrow: 720px;
+  --container-default: 1200px;
+  --container-wide: 1440px;
+
+  /* Easing */
+  --ease-theatrical: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snappy: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphatic: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────────────────────────────────────────
+   Base
+─────────────────────────────────────────────────────────── */
+
+@layer base {
+  html,
+  body {
+    background: var(--color-surface-1);
+    color: var(--color-ink-primary);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: var(--color-gold-500);
+    color: #000;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-gold-300);
+    outline-offset: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─────────────────────────────────────────────────────────
+   Components — semantic, named building blocks
+─────────────────────────────────────────────────────────── */
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display), Georgia, "Times New Roman", serif;
+    font-feature-settings: "liga", "dlig", "kern";
+  }
+
+  .font-body {
+    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
+
+  .eyebrow-gold {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-editorial);
+    text-transform: uppercase;
+    color: var(--color-gold-300);
+  }
+
+  /* Noise texture (atmospheric, on dark sections) */
+  .section-textured {
+    position: relative;
+    isolation: isolate;
+  }
+  .section-textured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    background-size: 200px 200px;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    z-index: 0;
+  }
+  .section-textured > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Primary gold CTA with radial glow */
+  .cta-gold {
+    background: var(--color-gold-500);
+    color: #000;
+    position: relative;
+    isolation: isolate;
+    transition: background 0.4s var(--ease-snappy), transform 0.4s var(--ease-snappy);
+  }
+  .cta-gold::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(circle, var(--color-gold-50) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-snappy);
+    filter: blur(20px);
+    z-index: -1;
+    border-radius: inherit;
+  }
+  .cta-gold:hover {
+    background: var(--color-gold-200);
+    transform: translateY(-1px);
+  }
+  .cta-gold:hover::after {
+    opacity: 0.7;
+  }
+
+  /* Hero atmospheric overlay (dual gradient) */
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.95) 100%),
+      radial-gradient(ellipse at 50% 60%, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  }
+
+  /* Gold gradient mesh — subtle atmospheric backdrop */
+  .gold-mesh {
+    position: relative;
+  }
+  .gold-mesh::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(140, 107, 63, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .gold-mesh > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hairline editorial separator */
+  .rule-gold {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-gold-400) 50%,
+      transparent 100%
+    );
+    border: 0;
+  }
+
+  /* Drop cap (editorial pages) */
+  .dropcap::first-letter {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 5em;
+    float: left;
+    line-height: 0.85;
+    margin: 0.05em 0.12em 0 0;
+    color: var(--color-gold-300);
+    font-weight: 500;
+  }
+
+  /* ───── Pill CTA (rounded-full gold → hover white) ───── */
+  .cta-gold-pill {
+    background: var(--color-gold-500);
+    color: #000;
+    border-radius: 999px;
+    box-shadow: 0 4px 18px rgba(182, 139, 60, 0.35);
+    transition: background 0.4s var(--ease-snappy), color 0.4s var(--ease-snappy),
+      transform 0.4s var(--ease-snappy), box-shadow 0.4s var(--ease-snappy);
+    position: relative;
+    isolation: isolate;
+  }
+  .cta-gold-pill::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: radial-gradient(circle, var(--color-gold-50) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-snappy);
+    filter: blur(22px);
+    z-index: -1;
+    border-radius: inherit;
+  }
+  .cta-gold-pill:hover {
+    background: #ffffff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 216, 117, 0.35);
+  }
+  .cta-gold-pill:hover::after {
+    opacity: 0.55;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Hero animations (ported from existing brand site)
+─────────────────────────────────────────────────────────── */
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInButtons {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.anim-logo-fade-in {
+  animation: logoFadeIn 2.2s ease-out forwards;
+  opacity: 0;
+}
+
+.anim-fade-in-up {
+  animation: fadeInUp 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+.anim-fade-in-up-delay-1 {
+  animation: fadeInUp 1.5s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.anim-fade-in-buttons {
+  animation: fadeInButtons 2.4s ease-out forwards;
+  opacity: 0;
+}
+
+.anim-slow-zoom {
+  animation: slowZoom 30s ease-in-out infinite alternate;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Motion preferences
+─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
