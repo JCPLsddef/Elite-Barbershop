@@ -92,26 +92,6 @@ const COMBO_SERVICE: Service = {
   drink: true,
 };
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Chaque visite, un rituel impeccable. L'expertise se ressent dans chaque détail.",
-    author: "Marc D.",
-    role: "Client VIP",
-  },
-  {
-    quote: "C'est plus qu'une coupe. C'est une heure pour soi.",
-    author: "Jean-Pierre L.",
-    role: "Client régulier",
-  },
-  {
-    quote:
-      "Le tracé au rasoir, la précision, l'ambiance. Rien à voir avec un salon ordinaire.",
-    author: "François T.",
-    role: "Client depuis 2019",
-  },
-];
-
 const VIP_INCLUSIONS = [
   "Consultation privée 15 min",
   "Coupe complète sur mesure",
@@ -241,75 +221,6 @@ function ServiceCard({ s, idx }: { s: Service; idx: number }) {
         <Price amount={s.price} />
         <BookButton />
       </div>
-    </Reveal>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────
-// Testimonial Strip — auto-rotate 8s
-// ─────────────────────────────────────────────────────────────────────
-
-function TestimonialStrip() {
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    const id = setInterval(
-      () => setIdx((i) => (i + 1) % TESTIMONIALS.length),
-      8000
-    );
-    return () => clearInterval(id);
-  }, []);
-  const t = TESTIMONIALS[idx];
-  return (
-    <Reveal as="section" className="testimonial-strip">
-      <span className="tm-quote-mark left">&ldquo;</span>
-      <span className="tm-quote-mark right">&rdquo;</span>
-      <blockquote key={t.author} className="tm-quote">
-        {t.quote}
-      </blockquote>
-      <div className="tm-attr">
-        <span className="tm-name">{t.author}</span>
-        <span className="tm-role">{t.role}</span>
-      </div>
-      <div className="tm-dots" role="tablist" aria-label="Témoignages">
-        {TESTIMONIALS.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            role="tab"
-            aria-selected={i === idx}
-            className={`tm-dot ${i === idx ? "is-active" : ""}`}
-            onClick={() => setIdx(i)}
-            aria-label={`Témoignage ${i + 1}`}
-          />
-        ))}
-      </div>
-    </Reveal>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────
-// Upgrade Path
-// ─────────────────────────────────────────────────────────────────────
-
-function UpgradePath() {
-  return (
-    <Reveal className="upgrade-path">
-      <span className="up-from">Essentiels · 20–50&nbsp;$</span>
-      <span className="up-rule"></span>
-      <span className="up-delta">+50&nbsp;$ pour l&apos;expérience complète</span>
-      <span className="up-rule"></span>
-      <span className="up-arrow" aria-hidden="true">
-        <svg viewBox="0 0 14 18" fill="none">
-          <path
-            d="M7 1 V 16 M 2 11 L 7 16 L 12 11"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-      <span className="up-to">VIP · 100&nbsp;$</span>
     </Reveal>
   );
 }
@@ -512,29 +423,6 @@ export function ServicesSection() {
     return () => io.disconnect();
   }, []);
 
-  // Auto-play every 4s, toggle .auto-play for ~1.4s — fires hover animations on every card
-  useEffect(() => {
-    const root = sectionRef.current;
-    if (!root) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const trigger = () => {
-      const targets = root.querySelectorAll(".card, .vip-hero, .vip, .welcome");
-      targets.forEach((el) => el.classList.add("auto-play"));
-      setTimeout(() => {
-        targets.forEach((el) => el.classList.remove("auto-play"));
-      }, 1400);
-    };
-
-    const startId = setTimeout(trigger, 1800);
-    const intervalId = setInterval(trigger, 4000);
-    return () => {
-      clearTimeout(startId);
-      clearInterval(intervalId);
-    };
-  }, []);
-
   return (
     <div
       id="services"
@@ -594,10 +482,6 @@ export function ServicesSection() {
           <div className="combo-grid">
             <ServiceCard s={COMBO_SERVICE} idx={0} />
           </div>
-
-          <TestimonialStrip />
-
-          <UpgradePath />
         </div>
 
         {/* Tier II — VIP Spotlight (NOT dimmable) */}
