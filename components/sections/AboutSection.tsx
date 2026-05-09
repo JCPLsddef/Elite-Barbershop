@@ -1,4 +1,9 @@
-import { ABOUT_BLOCKS, ABOUT_HERO_IMAGE } from "@/components/sections/about/content";
+import {
+  ABOUT_BLOCKS,
+  ABOUT_HERO_IMAGE,
+  GALLERY_IMAGES,
+} from "@/components/sections/about/content";
+import { Gallery } from "@/components/sections/about/Gallery";
 import "@/components/sections/about/styles.css";
 
 type AboutSectionProps = {
@@ -9,7 +14,8 @@ export function AboutSection({ locale }: AboutSectionProps) {
   const isFr = locale === "fr";
 
   return (
-    <div className="section-about-aesop" id="apropos">
+    <>
+      <div className="section-about-aesop" id="apropos">
       {ABOUT_HERO_IMAGE && (
         <div className="hero-image-wrapper-full">
           {/* Full-bleed editorial hero — uses raw <img> on purpose to preserve
@@ -98,6 +104,14 @@ export function AboutSection({ locale }: AboutSectionProps) {
           </div>
         );
       })}
-    </div>
+      </div>
+
+      <Gallery
+        title={isFr ? "Notre Galerie" : "Our Gallery"}
+        images={GALLERY_IMAGES}
+        prevLabel={isFr ? "Précédent" : "Previous"}
+        nextLabel={isFr ? "Suivant" : "Next"}
+      />
+    </>
   );
 }

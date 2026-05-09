@@ -475,3 +475,97 @@
     border-radius: 0 !important;
   }
 }
+
+/* =========================================================
+   Elite Gallery — fullscreen slider, ported verbatim
+   ========================================================= */
+
+.elite-gallery-section {
+  background-color: #FFFFFF;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.elite-gallery-section h2 {
+  font-size: 40px;
+  color: #B68B3C;
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 60px 0 20px;
+}
+
+.elite-gallery-section .elite-gallery-slider {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.elite-gallery-section .slider-track {
+  display: flex;
+  transition: transform 0.6s ease;
+  height: 100%;
+  width: 100%;
+}
+
+.elite-gallery-section .slide {
+  min-width: 100%;
+  height: 100%;
+  animation: galleryFadeInSlide 1s ease-in-out;
+  position: relative;
+}
+
+@keyframes galleryFadeInSlide {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.elite-gallery-section .slide img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.elite-gallery-section .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  width: 50px;
+  height: 50px;
+  border: 2px solid #B68B3C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.elite-gallery-section .nav svg {
+  fill: #B68B3C;
+  width: 22px;
+  height: 22px;
+}
+
+.elite-gallery-section .nav:hover {
+  background-color: #B68B3C;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.elite-gallery-section .nav:hover svg {
+  fill: #111;
+}
+
+.elite-gallery-section .prev { left: 20px; }
+.elite-gallery-section .next { right: 20px; }
+
+@media (max-width: 768px) {
+  .elite-gallery-section .slide img { height: 100vh; }
+  .elite-gallery-section .nav { width: 40px; height: 40px; }
+}

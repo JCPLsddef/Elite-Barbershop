@@ -26,24 +26,32 @@ export type AboutHeroBlock = {
 
 export type AboutBlock = AboutTextBlock | AboutQuoteBlock | AboutHeroBlock;
 
-// Hero banner image at the top of the page (full-bleed).
-// 👉 Replace with the URL Hadi sends you.
-export const ABOUT_HERO_IMAGE: string | null =
-  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/Facelab_2025-08-18_06-28-56.jpg?v=1755567059";
+// No top hero banner on the About page — matches the live design.
+export const ABOUT_HERO_IMAGE: string | null = null;
 
 export const ABOUT_BLOCKS: AboutBlock[] = [
+  {
+    type: "textblock",
+    imagePosition: "center",
+    title_fr: "Notre Histoire",
+    title_en: "Our Story",
+    text_fr:
+      "Elite Barbershop est né d'une vision ambitieuse : offrir une expérience de soins masculins sans compromis, alliant précision technique, raffinement et véritable sens de l'hospitalité. Fondé en 2024 par Hadi, maître barbier avec plus de dix ans d'expérience, le salon s'est rapidement imposé comme une destination incontournable à Laval. Dès le premier jour, Elite Barbershop a su séduire une clientèle fidèle et exigeante, captivée par l'excellence constante de ses services. Plus de 400 clients ont déjà laissé des avis 5 étoiles, confirmant le statut d'Elite comme l'un des barbershops les plus respectés du Québec. Chaque membre de l'équipe partage la même obsession du détail et du service irréprochable. Ici, chaque rendez-vous est bien plus qu'une simple coupe : c'est un rituel de confiance, une expérience haut de gamme pensée pour révéler la meilleure version de vous-même.",
+    text_en:
+      "Elite Barbershop was born from an ambitious vision: to offer an uncompromising men's grooming experience that pairs technical precision, refinement, and a true sense of hospitality. Founded in 2024 by Hadi — a master barber with more than ten years of experience — the shop quickly became a destination of choice in Laval. From day one, Elite Barbershop has earned a loyal and demanding clientele, captivated by the consistent excellence of its services. More than 400 clients have already left 5-star reviews, confirming Elite's status as one of the most respected barbershops in Quebec. Every member of the team shares the same obsession with detail and impeccable service. Here, every appointment is far more than a simple cut — it's a ritual of confidence, a premium experience designed to reveal the best version of yourself.",
+  },
   {
     type: "textblock",
     imagePosition: "right",
     image:
       "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/Facelab_2025-08-18_06-28-56.jpg?v=1755567059",
     imageAlt: "Hadi — Founder of Elite Barbershop",
-    title_fr: "Hadi — Fondateur",
-    title_en: "Hadi — Founder",
+    title_fr: "Hadi",
+    title_en: "Hadi",
     text_fr:
-      "Visionnaire derrière Elite Barbershop, Hadi a fondé la maison à Laval avec une obsession simple : élever chaque coupe au rang d'art. Formé à l'école du détail, il transforme un rendez-vous en rituel — précision du rasoir, chaleur d'une serviette chaude, finition au talc. Sa signature n'est pas un style, c'est une exigence : la vôtre, sans compromis.",
+      "Avec dix années d'expérience dans son art, Hadi maîtrise son métier à la perfection. À seulement 25 ans, il s'est déjà forgé une solide réputation grâce à sa précision, son sens du style et la qualité haut de gamme de ses services. Avant de lancer Elite Barbershop en 2024, il a perfectionné son savoir-faire dans certains des meilleurs barbershops, gagnant la fidélité d'une clientèle exigeante. Son engagement envers l'excellence se reflète dans ses avis 5 étoiles, faisant de lui l'un des barbiers les plus respectés de l'industrie.",
     text_en:
-      "The visionary behind Elite Barbershop, Hadi founded the house in Laval with one obsession: elevating every cut to the level of craft. Trained in the school of detail, he turns an appointment into a ritual — razor precision, the warmth of a hot towel, a clean finish in talc. His signature isn't a style, it's a standard: yours, without compromise.",
+      "With ten years of experience in his craft, Hadi has mastered his trade to perfection. At just 25, he has already built a solid reputation thanks to his precision, his sense of style, and the premium quality of his services. Before launching Elite Barbershop in 2024, he honed his skills in some of the finest barbershops, earning the loyalty of a demanding clientele. His commitment to excellence is reflected in his 5-star reviews, making him one of the most respected barbers in the industry.",
   },
   {
     type: "textblock",
@@ -51,18 +59,25 @@ export const ABOUT_BLOCKS: AboutBlock[] = [
     image:
       "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/IMG_9439.jpg?v=1755567060",
     imageAlt: "Evan — Master Barber at Elite Barbershop",
-    title_fr: "Evan — Maître Barbier",
-    title_en: "Evan — Master Barber",
+    title_fr: "Evan",
+    title_en: "Evan",
     text_fr:
-      "Calme, méthodique, irréprochable. Evan est l'âme silencieuse du salon — celui à qui l'on confie les transitions impossibles, les barbes architecturées, les retours en confiance. Sa lame ne ment pas : elle écoute, ajuste, sculpte. Chaque client repart avec plus que des cheveux taillés. Il repart avec une posture.",
+      "Evan, barbier hautement qualifié avec plus de 5 années d'expérience, est reconnu pour son souci du détail et son engagement envers l'excellence. Son expertise et son approche personnalisée incarnent les standards les plus élevés de l'expérience Elite Barbershop.",
     text_en:
-      "Calm, methodical, exacting. Evan is the quiet soul of the shop — the one entrusted with impossible transitions, architectural beards, and the kind of clean lines that bring confidence back. His blade doesn't lie: it listens, adjusts, sculpts. Every client leaves with more than a fresh cut. He leaves standing taller.",
+      "Evan, a highly skilled barber with more than 5 years of experience, is recognized for his attention to detail and his commitment to excellence. His expertise and personalized approach embody the highest standards of the Elite Barbershop experience.",
   },
   {
     type: "quote",
-    quote_fr:
-      "Nous ne coupons pas des cheveux. Nous façonnons la confiance d'un homme.",
-    quote_en:
-      "We don't cut hair. We shape a man's confidence.",
+    quote_fr: "« Votre style, notre passion. »",
+    quote_en: "“Your style, our passion.”",
   },
+];
+
+export const GALLERY_IMAGES: string[] = [
+  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/elite-barbershop-laval-interior.webp?v=1775016997",
+  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/4.jpg?v=1753454380",
+  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/3.jpg?v=1753454379",
+  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/DSC09256.jpg?v=1753454379",
+  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/DSC09289.jpg?v=1753454377",
+  "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/2.jpg?v=1753454380",
 ];
