@@ -20,13 +20,13 @@
 
 /* Custom typography classes — using project fonts but applying the design's tracking. */
 .franchise-page .font-cinzel {
-  font-family: var(--font-display), "Cormorant Garamond", serif;
+  font-family: var(--font-display), "Bodoni Moda", Georgia, serif;
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 .franchise-page .font-cormorant {
-  font-family: var(--font-display), "Cormorant Garamond", serif;
+  font-family: var(--font-display), "Bodoni Moda", Georgia, serif;
 }
 .franchise-page .font-jost {
   font-family: var(--font-body), system-ui, sans-serif;

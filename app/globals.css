@@ -97,8 +97,24 @@
   }
 
   body {
-    font-family: var(--font-body), system-ui, sans-serif;
-    font-feature-settings: "ss01", "cv11";
+    font-family: var(--font-body), "Manrope", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.6;
+    font-feature-settings: "cv11", "ss01", "ss03";
+  }
+
+  /* Premium editorial defaults — apply Bodoni Moda to all headings */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+  h1 { letter-spacing: -0.045em; line-height: 0.92; }
+
+  button, input, select, textarea {
+    font-family: var(--font-body), "Manrope", system-ui, sans-serif;
   }
 
   ::selection {

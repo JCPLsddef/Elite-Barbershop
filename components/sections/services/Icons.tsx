@@ -2,7 +2,7 @@
    Drawn lean and architectural — single weight, no fills, gold stroke.
    Ported verbatim from the claude.ai/design handoff. */
 
-const STROKE = 1.4;
+const STROKE = 1.25;
 
 export function IconScissors() {
   return (
@@ -43,15 +43,48 @@ export function IconRazor() {
 }
 
 export function IconChild() {
+  // Small scissor + sparkles — friendly but never cartoonish.
+  // Reads as a smaller, gentler cut. Distinct from adult scissors.
   return (
-    <span className="svc-icon svc-icon--child ic-child-img-wrap" aria-hidden="true">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className="ic-child-img"
-        src="https://cdn.shopify.com/s/files/1/0624/6059/2222/files/ChatGPT_Image_25_juil._2025_11_51_34.png?v=1753458719"
-        alt=""
-      />
-    </span>
+    <svg
+      viewBox="0 0 64 64"
+      className="svc-icon svc-icon--child"
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={STROKE}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* Centered small scissor — pivot at (32, 38), more rounded handles */}
+      <circle cx="32" cy="38" r="1.6" fill="currentColor" stroke="none" />
+
+      {/* Top blade (right handle) */}
+      <g className="ic-pin ic-pin--top">
+        <circle cx="24" cy="30" r="5" />
+        <path d="M28.4 32.4 L52 50" />
+      </g>
+
+      {/* Bottom blade (left handle) */}
+      <g className="ic-pin ic-pin--bot">
+        <circle cx="24" cy="46" r="5" />
+        <path d="M28.4 43.6 L52 26" />
+      </g>
+
+      {/* Sparkle — small 4-point burst, top-right */}
+      <g className="ic-mini-scissor">
+        <line x1="52" y1="6" x2="52" y2="14" />
+        <line x1="48" y1="10" x2="56" y2="10" />
+        <line x1="49.5" y1="7.5" x2="54.5" y2="12.5" opacity="0.55" />
+        <line x1="49.5" y1="12.5" x2="54.5" y2="7.5" opacity="0.55" />
+      </g>
+
+      {/* Second tiny sparkle bottom-right */}
+      <g className="ic-pin ic-pin--side">
+        <line x1="58" y1="40" x2="58" y2="46" opacity="0.7" />
+        <line x1="55" y1="43" x2="61" y2="43" opacity="0.7" />
+      </g>
+    </svg>
   );
 }
 
@@ -80,15 +113,28 @@ export function IconEar() {
 }
 
 export function IconBeard() {
+  // Beard + razor — animated mustache + razor slide on hover.
   return (
-    <span className="svc-icon svc-icon--beard ic-child-img-wrap" aria-hidden="true">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className="ic-child-img"
-        src="https://cdn.shopify.com/s/files/1/0624/6059/2222/files/ChatGPT_Image_25_juil._2025_11_54_31.png?v=1753458890"
-        alt=""
-      />
-    </span>
+    <svg
+      viewBox="0 0 64 64"
+      className="svc-icon svc-icon--beard"
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={STROKE}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* Jawline / beard shape */}
+      <path className="ic-jaw" d="M16 22 C16 30, 18 42, 32 50 C46 42, 48 30, 48 22" />
+      {/* Mustache */}
+      <path className="ic-mustache" d="M22 22 C26 24, 30 24, 32 22 C34 24, 38 24, 42 22" />
+      {/* Razor — slides on hover */}
+      <g className="ic-razor">
+        <line x1="52" y1="10" x2="46" y2="16" />
+        <rect x="42" y="14" width="6" height="3" rx="0.5" transform="rotate(-45 45 15.5)" />
+      </g>
+    </svg>
   );
 }
 

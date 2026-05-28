@@ -5,28 +5,26 @@
    ========================================================= */
 
 .elite-services-root {
-  /* Design palette (warm charcoal + gold) */
-  --bg: #0d0b09;
-  --bg-2: #15110d;
-  --bg-card: #1a1510;
-  --bg-card-hi: #221c14;
+  /* Palette — black matte + bronze gold (Elite by Hadi) */
+  --bg: #060606;
+  --bg-2: #0b0b0b;
+  --bg-card: #0b0b0b;
+  --bg-card-hi: #10100e;
   --ink: #f5f1e8;
-  --ink-2: #b8b0a0;
-  --ink-3: #6b6457;
-  --gold: #d4a853;
-  --gold-hi: #e8c547;
-  --gold-soft: rgba(212, 168, 83, 0.18);
-  --gold-line: rgba(212, 168, 83, 0.22);
-  --hairline: rgba(245, 241, 232, 0.08);
-  --hairline-2: rgba(245, 241, 232, 0.14);
+  --ink-2: #a7a29a;
+  --ink-3: #6f6a60;
+  --gold: #b68b3c;
+  --gold-bright: #d8b56d;
+  --gold-hi: #d8b56d;
+  --gold-soft: rgba(182, 139, 60, 0.16);
+  --gold-line: rgba(182, 139, 60, 0.28);
+  --hairline: rgba(245, 241, 232, 0.07);
+  --hairline-2: rgba(245, 241, 232, 0.12);
 
-  /* Mapped to LOCKED site fonts:
-     Cormorant Garamond (Italian serif, equivalent luxe presence as Bodoni Moda)
-     Space Grotesk (geometric sans, mapped to both --sans and --mono — the design
-     uses --mono for tracked uppercase labels which Space Grotesk handles well) */
-  --serif: var(--font-display), "Bodoni Moda", "Times New Roman", Georgia, serif;
+  /* Premium typography tokens — Bodoni Moda + Manrope */
+  --serif: var(--font-display), "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
   --sans: var(--font-body), "Manrope", system-ui, -apple-system, sans-serif;
-  --mono: var(--font-body), "JetBrains Mono", ui-monospace, monospace;
+  --mono: var(--font-body), "Manrope", ui-monospace, monospace;
 
   background: var(--bg);
   color: var(--ink);

@@ -8,7 +8,7 @@
   color: #fff;
   padding: 60px 20px 60px;
   text-align: center;
-  font-family: var(--font-body), 'Space Grotesk', sans-serif;
+  font-family: var(--font-body), var(--font-body), 'Manrope', system-ui, sans-serif;
 }
 
 .elite-faq-section .faq-container {

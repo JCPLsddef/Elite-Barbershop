@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Space_Grotesk } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -8,17 +8,21 @@ import { Header } from "@/components/layout/Header";
 import { ConditionalFooter } from "@/components/layout/ConditionalFooter";
 import "../globals.css";
 
-const cormorant = Cormorant_Garamond({
+// Bodoni Moda — display serif. Carries optical-size axis automatically.
+// Used via --font-display for: h1-h4, hero/section/service titles, prices.
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+// Manrope — modern geometric sans. Used via --font-body for:
+// body text, navigation, buttons, labels, meta, inputs.
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
 });
@@ -54,7 +58,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${cormorant.variable} ${spaceGrotesk.variable} antialiased`}
+      className={`${bodoni.variable} ${manrope.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-[color:var(--color-surface-1)]">
         <NextIntlClientProvider>

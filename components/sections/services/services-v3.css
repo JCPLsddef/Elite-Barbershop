@@ -1,0 +1,194 @@
+/* =========================================================
+   V3 — Tier rail + sticky mobile Book pill
+   Conversion mechanics layer on top of v2
+   ========================================================= */
+
+/* ---------- Tier rail (desktop only) ---------- */
+.tier-rail {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+}
+.tier-rail.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (max-width: 1100px) {
+  .tier-rail { display: none; }
+}
+
+.tier-rail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.tier-rail-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  width: 28px;
+  text-align: right;
+  transition: color 280ms ease, font-size 280ms ease;
+}
+
+.tier-rail-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+  transition:
+    width 280ms ease,
+    height 280ms ease,
+    background 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.tier-rail-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 280ms ease, transform 280ms ease, color 280ms ease;
+}
+
+.tier-rail-item:hover .tier-rail-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tier-rail-item.is-active .tier-rail-num {
+  color: var(--gold);
+  font-size: 12px;
+}
+.tier-rail-item.is-active .tier-rail-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  box-shadow:
+    0 0 0 4px rgba(212, 168, 83, 0.15),
+    0 0 18px rgba(212, 168, 83, 0.6);
+}
+.tier-rail-item.is-active .tier-rail-label {
+  color: var(--gold);
+}
+
+.tier-rail-item:hover .tier-rail-num { color: var(--gold-bright, #e2c084); }
+.tier-rail-item:hover .tier-rail-dot {
+  background: rgba(212, 168, 83, 0.6);
+}
+
+/* ---------- Sticky mobile Book pill ---------- */
+.book-pill {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%, calc(100% + 24px));
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #0d0b09;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 999px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(212, 168, 83, 0.35);
+  transition:
+    transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 320ms ease;
+  opacity: 0;
+}
+.book-pill.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+.book-pill svg {
+  width: 12px;
+  height: 12px;
+}
+.book-pill:active {
+  transform: translate(-50%, 2px);
+}
+@media (min-width: 1101px) {
+  .book-pill { display: none; }
+}
+
+/* Safe area below content so the sticky pill never covers a card CTA */
+@media (max-width: 1100px) {
+  .elite-services-root { padding-bottom: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-pill,
+  .tier-rail { transition: opacity 200ms ease; }
+}
+
+/* ---------- VIP spotlight parallax layer ---------- */
+.spotlight-parallax {
+  position: absolute;
+  inset: -120px -10% -120px -10%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(212, 168, 83, 0.10), transparent 70%),
+    radial-gradient(circle at 20% 20%, rgba(212, 168, 83, 0.05), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212, 168, 83, 0.05), transparent 50%);
+  opacity: 0;
+  transition: opacity 700ms ease-out;
+}
+.section-v2.vip-active .spotlight-parallax { opacity: 1; }
+
+/* Magnetic 3D tilt layer — wraps the crown SVG inside .vip-hero-crown */
+.vip-hero-crown-tilt {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Welcome banner — secondary CTA demoted ---------- */
+.welcome-v2-phone {
+  border-top: 1px solid var(--hairline);
+  padding-top: 14px;
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+.welcome-v2-phone:hover { opacity: 1; }
+.welcome-v2-phone .lbl {
+  font-size: 9px;
+  letter-spacing: 0.26em;
+}

@@ -1,0 +1,275 @@
+/* =========================================================
+   V4 — Premium credibility pass
+   Proof row, badge variants, after-hours pricing, density
+   ========================================================= */
+
+/* ---------- Section header tighter ---------- */
+.section-v2 .s-head {
+  padding-bottom: 40px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--hairline);
+}
+.section-v2 .s-title {
+  font-size: clamp(40px, 5.8vw, 80px);
+  margin-top: 18px;
+}
+.section-v2 .s-sub {
+  font-size: 14.5px;
+  max-width: 340px;
+}
+
+/* ---------- Proof row ---------- */
+.section-v2 .proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 18px;
+  padding: 18px 24px;
+  margin: 0 0 72px;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  background:
+    linear-gradient(180deg, rgba(182, 139, 60, 0.02), transparent 50%);
+}
+.section-v2 .proof-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.section-v2 .proof-item strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+.section-v2 .proof-star {
+  color: var(--gold-bright);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(182, 139, 60, 0.4));
+}
+.section-v2 .proof-sep {
+  color: var(--ink-3);
+  opacity: 0.5;
+  font-size: 10px;
+}
+@media (max-width: 720px) {
+  .section-v2 .proof-row {
+    gap: 10px 14px;
+    padding: 16px 18px;
+    margin-bottom: 48px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+  .section-v2 .proof-sep { display: none; }
+}
+
+/* ---------- Badge tag (replaces drink + popular badges) ---------- */
+.section-v2 .card .badge-tag {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--gold-line);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(182, 139, 60, 0.04);
+  z-index: 2;
+  white-space: nowrap;
+}
+.section-v2 .card .badge-tag--star {
+  color: var(--gold-bright);
+  border-color: rgba(182, 139, 60, 0.55);
+  background: rgba(182, 139, 60, 0.10);
+}
+.section-v2 .card .badge-tag-mark {
+  color: var(--gold-bright);
+  font-size: 10px;
+  line-height: 1;
+}
+.section-v2 .card--star .card-num {
+  top: 22px;
+}
+
+/* Hide v2 legacy drink + popular badges (replaced by .badge-tag) */
+.section-v2 .card .badge-drink,
+.section-v2 .card .badge-popular {
+  display: none !important;
+}
+
+/* ---------- Card density + button hierarchy ---------- */
+.section-v2 .card {
+  padding: 56px 28px 26px;
+  min-height: 420px;
+}
+.section-v2 .card-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.section-v2 .card-copy {
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+.section-v2 .card-feats {
+  margin-bottom: 22px;
+  gap: 7px;
+}
+.section-v2 .card-feats li {
+  font-size: 12.5px;
+}
+
+/* Price + CTA — price more prominent, CTA more explicit */
+.section-v2 .card-foot {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  padding-top: 18px;
+}
+.section-v2 .card-foot .price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.section-v2 .card-foot .price-amount {
+  font-size: 36px;
+  color: var(--ink);
+}
+.section-v2 .card:hover .price-amount {
+  color: var(--gold);
+}
+.section-v2 .card-foot .price-suffix {
+  color: var(--ink-3);
+}
+.section-v2 .card-foot .btn-book {
+  justify-content: center;
+  width: 100%;
+  padding: 13px 16px;
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+}
+
+/* ---------- After-hours pricing block ---------- */
+.section-v2 .after-feats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+.section-v2 .after-feats li {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-v2 .after-feats li::before {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.section-v2 .after-foot {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 12px 20px;
+}
+.section-v2 .after-foot .btn-book {
+  grid-column: 1 / -1;
+  justify-content: center;
+}
+.section-v2 .after-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.section-v2 .after-price-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.section-v2 .after-price .price-amount {
+  font-size: 26px;
+}
+.section-v2 .after-phone {
+  justify-self: end;
+}
+@media (max-width: 800px) {
+  .section-v2 .after-foot {
+    grid-template-columns: 1fr;
+  }
+  .section-v2 .after-phone {
+    justify-self: start;
+  }
+}
+
+/* ---------- VIP spotlight tone shift (bronze) ---------- */
+.section-v2 .vip-hero {
+  border-color: var(--gold);
+  box-shadow:
+    0 16px 48px rgba(182, 139, 60, 0.20),
+    inset 0 0 24px rgba(182, 139, 60, 0.05);
+}
+
+/* ---------- Welcome banner tone shift ---------- */
+.section-v2 .welcome-v2 {
+  border-color: var(--gold);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(182, 139, 60, 0.08), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(182, 139, 60, 0.05), transparent 55%),
+    var(--bg-card);
+}
+
+/* ---------- Tighter overall section padding ---------- */
+.section-v2 {
+  padding: 96px 48px 112px;
+}
+@media (max-width: 720px) {
+  .section-v2 { padding: 56px 18px 72px; }
+}
+
+/* ---------- Mobile card density ---------- */
+@media (max-width: 720px) {
+  .section-v2 .card {
+    padding: 48px 22px 22px;
+    min-height: auto;
+  }
+  .section-v2 .card .badge-tag {
+    top: 18px;
+    left: 18px;
+    font-size: 8.5px;
+    padding: 4px 8px;
+  }
+  .section-v2 .card-foot {
+    gap: 12px;
+  }
+  .section-v2 .card-foot .price-amount {
+    font-size: 30px;
+  }
+}
+
+/* Hide legacy "card-num" on small screens — busy */
+@media (max-width: 480px) {
+  .section-v2 .card-num { display: none; }
+}

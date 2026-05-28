@@ -1,355 +1,219 @@
 /* =========================================================
-   Elite Barbershop — Testimonials Premium (Section)
-   Ported from brand site Liquid pattern, adapted for Next.js.
-   Scoped to .elite-testimonials-section.
+   Elite Barbershop — Testimonials (3-column scroll)
    ========================================================= */
 
-.elite-testimonials-section {
-  background-color: #000;
-  width: 100%;
-  margin: 0;
-  padding: 100px 24px 80px;
+.elite-testimonials {
   position: relative;
-  color: #fff;
-  text-align: center;
-  z-index: 1;
+  background: #060606;
+  color: #f5f1e8;
+  padding: 96px 32px 112px;
   overflow: hidden;
-  isolation: isolate;
+  /* Bronze tokens — local to section */
+  --gold: #b68b3c;
+  --gold-bright: #d8b56d;
+  --gold-line: rgba(182, 139, 60, 0.28);
+  --ink: #f5f1e8;
+  --ink-2: #a7a29a;
+  --ink-3: #6f6a60;
+  --bg-card: #0c0a08;
+  --hairline: rgba(245, 241, 232, 0.07);
 }
-
-/* Subtle gold mesh atmosphere (premium polish, replaces the brutal #000 in the source) */
-.elite-testimonials-section::before {
+.elite-testimonials::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(140, 107, 63, 0.04) 0%, transparent 50%);
+    radial-gradient(circle at 18% 30%, rgba(182, 139, 60, 0.05), transparent 55%),
+    radial-gradient(circle at 82% 70%, rgba(182, 139, 60, 0.04), transparent 60%);
   pointer-events: none;
-  z-index: 0;
-}
-
-.elite-testimonials-section > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ---------- Section title (Cormorant, gold underline accent) ---------- */
-.elite-testimonials-title {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 600;
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  color: #fff;
-  margin: 0 0 28px;
-  letter-spacing: -0.01em;
-  position: relative;
-  display: inline-block;
-}
-
-.elite-testimonials-title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background-color: #8C6B3F;
-  margin: 16px auto 0;
-  border-radius: 2px;
-}
-
-/* ---------- Rating burst ---------- */
-.elite-rating-burst {
-  margin: 0 auto 56px;
-  max-width: 720px;
-}
-
-.elite-rating-text-group {
-  margin-top: 20px;
-  animation: fadeInUp 1.2s ease-in-out;
-}
-
-.elite-rating-h1 {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 600;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: #B68B3C;
-  margin: 0 0 12px;
-  animation: fadeInUp 1s ease-in-out;
-  letter-spacing: -0.01em;
-}
-
-.elite-rating-h2 {
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-weight: 400;
-  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
-  line-height: 1.6;
-  color: #E2E2E2;
-  margin: 0;
-  animation: fadeInUp 1.4s ease-in-out;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---------- Embla carousel ---------- */
-.elite-testimonials-carousel {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.elite-embla {
-  overflow: hidden;
-  padding: 24px 0 16px;
-}
-
-.elite-embla__container {
-  display: flex;
-  gap: 0;
-}
-
-.elite-embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  padding: 0 12px;
-  display: flex;
-}
-
-@media (min-width: 720px) {
-  .elite-embla__slide {
-    flex: 0 0 50%;
-  }
-}
-
-@media (min-width: 1100px) {
-  .elite-embla__slide {
-    flex: 0 0 33.3333%;
-  }
-}
-
-/* ---------- Card ---------- */
-.elite-testimonial-card {
-  background-color: #1a1a1a;
-  border: 1.5px solid rgba(182, 139, 60, 0.6);
-  border-radius: 16px;
-  padding: 38px 26px 30px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0 28px rgba(182, 139, 60, 0.18);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 380px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-}
-
-.elite-testimonial-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(212, 175, 55, 0.85);
-  box-shadow: 0 12px 36px rgba(182, 139, 60, 0.32);
-}
-
-/* ---------- Avatar (initials fallback when no photo) ---------- */
-.elite-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 18px;
-  border: 2px solid rgba(182, 139, 60, 0.6);
-  background:
-    linear-gradient(135deg, #2a2014 0%, #1a1510 100%);
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #B68B3C;
-  letter-spacing: 0.02em;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
-  user-select: none;
-}
-
-.elite-avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* ---------- Stars ---------- */
-.elite-stars {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin: 0 0 16px;
-}
-
-.elite-star {
-  width: 22px;
-  height: 22px;
-  fill: #B68B3C;
-  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.32));
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.elite-testimonial-card:hover .elite-star {
-  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.55));
-}
-
-/* ---------- Quote ---------- */
-.elite-quote {
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-style: italic;
-  color: #eaeaea;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  margin: 8px 0 18px;
-  flex-grow: 1;
-  text-wrap: balance;
-}
-
-/* ---------- Author ---------- */
-.elite-author {
-  margin-top: 14px;
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  color: #B68B3C;
-  text-transform: uppercase;
-}
-
-/* ---------- Arrows (visible on all viewports for swiper UX) ---------- */
-.elite-carousel-arrows {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  z-index: 5;
-}
-
-.elite-arrow {
-  pointer-events: auto;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(182, 139, 60, 0.4);
-  border-radius: 999px;
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-  color: #B68B3C;
-}
-
-.elite-arrow:hover:not(:disabled) {
-  background: rgba(182, 139, 60, 0.14);
-  border-color: rgba(212, 175, 55, 0.7);
-  transform: scale(1.05);
-}
-
-.elite-arrow:active {
-  transform: scale(0.96);
-}
-
-.elite-arrow:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.elite-arrow svg {
-  display: block;
-  filter: drop-shadow(0 0 6px rgba(182, 139, 60, 0.55));
 }
 
 @media (max-width: 720px) {
-  .elite-carousel-arrows {
-    padding: 0 8px;
-  }
-  .elite-arrow {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.65);
+  .elite-testimonials {
+    padding: 64px 20px 80px;
   }
 }
 
-/* ---------- Dot pagination ---------- */
-.elite-dots {
+.elite-testimonials-inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.elite-testimonials-header {
+  text-align: center;
+  margin: 0 auto 48px;
+  max-width: 640px;
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 32px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.elite-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(182, 139, 60, 0.3);
-  border: 0;
-  cursor: pointer;
-  padding: 0;
-  transition: width 0.3s ease, background 0.3s ease;
-}
-
-.elite-dot.is-active {
-  width: 24px;
-  border-radius: 3px;
-  background: #B68B3C;
-}
-
-/* ---------- Footer link to Google ---------- */
-.elite-testimonials-foot {
-  margin-top: 40px;
-}
-
-.elite-testimonials-foot a {
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #B68B3C;
-  text-decoration: none;
+.elite-testimonials-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+.elite-testimonials-rule {
+  width: 38px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
 }
 
-.elite-testimonials-foot a:hover {
-  color: #FFD875;
-  transform: translateY(-1px);
+.elite-testimonials-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(34px, 4.5vw, 60px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.elite-testimonials-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
 }
 
-/* prefers-reduced-motion */
+.elite-testimonials-sub {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* ---------- Columns viewport ---------- */
+.elite-testimonials-columns {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+  max-height: 720px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
+}
+
+@media (max-width: 720px) {
+  .elite-testimonials-columns {
+    max-height: 620px;
+    gap: 16px;
+  }
+}
+
+/* ---------- Individual testimonial card ---------- */
+.testi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-line);
+  border-radius: 4px;
+  padding: 26px 26px 22px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.025) inset,
+    0 18px 32px rgba(0, 0, 0, 0.45);
+  position: relative;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+.testi-card::before {
+  content: "“";
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 52px;
+  line-height: 0.4;
+  color: var(--gold);
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+}
+.testi-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.025) inset,
+    0 24px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(182, 139, 60, 0.12);
+}
+
+.testi-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 22px;
+  text-wrap: pretty;
+}
+
+.testi-attribution {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+}
+
+.testi-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold-line);
+  flex-shrink: 0;
+}
+
+.testi-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.testi-name {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.testi-role {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-top: 3px;
+}
+
+/* ---------- Responsive: hide cols on smaller screens ---------- */
+@media (max-width: 1024px) {
+  .elite-testimonials-columns .hidden.lg\:block { display: none !important; }
+}
+@media (max-width: 768px) {
+  .elite-testimonials-columns .hidden.md\:block { display: none !important; }
+}
+
+/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .elite-rating-h1,
-  .elite-rating-h2,
-  .elite-rating-text-group {
-    animation: none;
+  .elite-testimonials-columns > div > * {
+    animation: none !important;
   }
-  .elite-testimonial-card,
-  .elite-arrow,
-  .elite-dot {
-    transition: none;
-  }
+  .testi-card,
+  .testi-card:hover { transform: none !important; }
 }
