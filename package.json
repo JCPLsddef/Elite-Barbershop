@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "rm -rf .next",
+    "prebuild": "echo '=== prebuild: wiping .next ===' && rm -rf .next && echo '=== .next wiped ==='",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
