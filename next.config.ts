@@ -18,7 +18,9 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/pages/a-propos-de-nous", destination: "/a-propos", permanent: true },
+      // No middleware → bare / must redirect to default locale here.
+      { source: "/", destination: "/fr", permanent: false },
+      { source: "/pages/a-propos-de-nous", destination: "/fr/a-propos", permanent: true },
       { source: "/pages/barbier-laval", destination: "/barbier-laval", permanent: true },
       { source: "/pages/franchise", destination: "/franchise", permanent: true },
       { source: "/pages/contact", destination: "/contact", permanent: true },

@@ -3,7 +3,10 @@ import { defineRouting } from "next-intl/routing";
 export const routing = defineRouting({
   locales: ["fr", "en"],
   defaultLocale: "fr",
-  localePrefix: "as-needed",
+  // 'always' (no middleware): every URL is /fr/... or /en/...
+  // Required for static export + Cloudflare Workers (Next 16 middleware
+  // runs Node-only, which OpenNext/Cloudflare rejects).
+  localePrefix: "always",
   pathnames: {
     "/": "/",
     "/services": {
